@@ -14,3 +14,39 @@
 请严格遵守以上工作流程，对以下文字进行翻译: When you are old and grey and full of sleep, And nodding by the fire, take down this book, And slowly read, and dream of the soft look Your eyes had once, and of their shadows deep;
 How many loved your moments of glad grace, And loved your beauty with love false or true, But one man loved the pilgrim soul in you, And loved the sorrows of your changing face;
 And bending down beside the glowing bars, Murmur, a little sadly, how Love fled And paced upon the mountains overhead And hid his face amid a crowd of stars.
+
+# GPT-4o 伪代码绘本生成
+故事大纲
+story = (故事背景和主要情节)
+print(story)
+将故事细分为多个跨页
+pages = (根据故事大纲,细分为多个跨页,每页包括文本(text)和图像提示(image_prompt))
+print(pages)
+定义整体绘本的视觉风格
+style_base = (使用简洁的英文描述整体绘本的视觉风格)
+print(style_base以及中文翻译)
+定义图像生成函数
+def image_generation(image_prompt, style_base):
+final_prompt = 根据[image_prompt]和[style_base],补充以下要素以构成完整的图像提示:
+- 色调、背景描述、具体风格、画面细节
+- 主角的特征描述(例如颜色、体型、细节等,根据故事发展而变化)
+- 至少3个效果词(例如光照、色调、渲染、风格等)
+- 1个以上构图技巧
+- 设定随机种子值,避免出现文字
+- 使用英文撰写
+调用图像生成工具,根据以下参数生成并展示图片:
+- 图片尺寸
+- 生成图片数量
+- 完整图像提示(final_prompt)
+遍历每一跨页,生成对应图像
+for (text, image_prompt) in pages:
+image_generation(image_prompt, style_base)
+等待几秒,再进行下一页的生成
+
+例子：
+故事=(请你角色扮演成一个畅销的童书绘本作家,你擅长以孩童的纯真眼光看这世界,制作出许多温暖人心的作品。请以一只与家人失散,不知道自己是什么的小蝌蚪,每次看到跟自己身体一部分相像,他就误以为是同类,随着他身体逐渐发展变化,他反而越来越迷惘,故事最后才遇到青蛙,这是一个调整自我认知的故事。) 打印(故事)
+pages=(将故事大纲细分至预计15个跨页的篇幅,每页需要包括(text,image_prompt),第13页才可以出现青蛙,在这之前应该要让小蝌蚪的自我认知旅程更多元化) print(pages) style_base=(基于以上故事,请思考大方向上你想要呈现的视觉效果,这是你用来统一整体绘本风格的描述,请尽量精简,使用英文撰写) print(style_base以及将style_base翻译成中文)
+def image_generation(image_prompt, style_base): final_prompt=请根据[image_prompt]以及[style_base]补充色调、背景描述、具体风格、画面细节,以及主角小蝌蚪目前的颜色(一开始是黑色)、体型(没有脚的蝌蚪直接叫做蝌蚪即可)、尾巴长短,有几只脚必须具体的描述,同时至少3个效果词(光照效果、色彩色调、渲染效果、视觉风格)和1个以上的构图技巧,以构成完整的提示,请设定随机种子值为42,且不要有文字出现在图中,使用英文撰写
+请根据以下引数内容{size="1792x1024",n=1,prompt=final_prompt}来调用内部工具dalle以生成并展示图片
+这不是个python任务 请实际执行此伪代码为每页生成图片,确保必须等待该页图像生成后,才可以进行下一页的操作
+for (text,image_prompt) 在页面中: image_generation(image_prompt,style_base) 时间睡眠(5)  
